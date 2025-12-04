@@ -1,30 +1,20 @@
 {
-  "name": "grabcss",
-  "version": "0.1.2",
-  "description": "A minimal, utility-first CSS framework for rapid UI development.",
+  "name": "@grabcss/monorepo",
+  "type": "module",
   "license": "MIT",
   "author": "grabss Inc.",
-  "homepage": "https://grabss.co.jp",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/grabss/grabcss.git"
+  "private": true,
+  "scripts": {
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "lint:ci": "biome ci .",
+    "dev": "pnpm -C playground dev",
+    "build": "pnpm -C packages/grabcss build",
+    "build:playground": "pnpm -C packages/grabcss build && pnpm -C playground build",
+    "preview:playground": "pnpm -C playground preview"
   },
-  "keywords": [
-    "css",
-    "postcss",
-    "css-framework",
-    "utility-first",
-    "minimal"
-  ],
-  "style": "dist/grab.css",
-  "exports": {
-    ".": "./dist",
-    "./scss/*": "./dist/scss/*"
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0"
   },
-  "files": [
-    "dist"
-  ],
-  "workspaces": [
-    "dev"
-  ]
+  "packageManager": "pnpm@10.12.1"
 }
